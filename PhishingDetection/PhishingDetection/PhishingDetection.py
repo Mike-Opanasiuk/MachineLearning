@@ -13,7 +13,7 @@ data = pd.read_csv('Sample.csv')
 from sklearn.impute import SimpleImputer
 
 # Розділення на колонки категорійних та числових даних
-categorical_cols = ['FILENAME', 'URL', 'Domain', 'TLD', 'Title']  # Категорійні колонки
+categorical_cols = ['URL', 'Domain', 'TLD', 'Title']  # Категорійні колонки
 numerical_cols = data.select_dtypes(include=['int64', 'float64']).columns.tolist()  # Усі числові колонки
 
 # Ініціалізація імп'ютера, що замінює NaN на медіану кожної колонки

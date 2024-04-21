@@ -34,7 +34,7 @@ y = XY['eps']
 # 5. One factor removal depending on variant number (t1)
 
 X0 = X.drop(columns=['t1'])
-print(X.head())
+print(X0.head())
 printLine();
 
 # 6. Building a linear regression model with all factors
@@ -54,6 +54,7 @@ print(model1.summary())
 X2 = X1.drop(columns=['t3'])
 model2 = sm.OLS(y, X2).fit()
 print(model2.summary())
+printLine();
 
 # 9. Build of new data frame
 

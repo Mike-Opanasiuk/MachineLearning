@@ -62,22 +62,22 @@ for model in models:
     model.fit(x_train, y_train)
     coefs = model.coef_
     model_name = model_names[type(model).__name__]
-    # print(f"Коефіцієнти для {model_name}:")
-    # print(np.around(model.coef_, decimals=2)) # Форматований вивід
+    print(f"Коефіцієнти для {model_name}:")
+    print(np.around(model.coef_, decimals=2)) # Форматований вивід
 
 # 8. Помилки моделей на навчальній вибірці
 for model in models:
     mse = mean_squared_error(y_train, model.predict(x_train))
     # r2 = r2_score(y_train, model.predict(x_train))
     model_name = model_names[type(model).__name__]
-    # print(f"Test RMSE of {model} = {np.sqrt(mse):.2f}")
+    print(f"Test RMSE of {model} = {np.sqrt(mse):.2f}")
     
 # 9. Помилки моделей на контрольній вибірці
 for model in models:
     mse = mean_squared_error(y_test, model.predict(x_test))
     # r2 = r2_score(y_test, model.predict(x_test))
     model_name = model_names[type(model).__name__]
-    # print(f"Test RMSE of {model} = {np.sqrt(mse):.2f}")
+    print(f"Test RMSE of {model} = {np.sqrt(mse):.2f}")
     
 # 10. Розрахунок фактора CV RMSE
 # Фактор CV RMSE 
@@ -98,7 +98,7 @@ for model in models:
         scoring='neg_root_mean_squared_error',
         error_score='raise'
     )
-    # print(f"CV RMSE of {model} = {-np.mean(model_rmse):.2f}")
+    print(f"CV RMSE of {model} = {-np.mean(model_rmse):.2f}")
 # print("\n")
 # Порівняйте CV RMSE для різних моделей і зробіть висновок щодо впливу 
 # регуляризації на модель LinearRegression    
@@ -108,7 +108,7 @@ for model in models:
 for model in models:
     model = model.fit(x_train, y_train)
     prediction = model.predict(x_test)
-    # print(f"Test RMSE of {model} = {np.sqrt(mean_squared_error(prediction,y_test)):.2f}")
+    print(f"Test RMSE of {model} = {np.sqrt(mean_squared_error(prediction,y_test)):.2f}")
     # Порівняйте CV RMSE для різних моделей і зробіть висновок щодо впливу 
     # регуляризації на модель LinearRegression
     
@@ -118,7 +118,7 @@ import matplotlib.pyplot as plt
 for model in models:
     model = model.fit(x_train, y_train)
     prediction = model.predict(x_test)
-    # print(f"Test RMSE of {model} = {np.sqrt(mean_squared_error(prediction,y_test)):.2f}")
+    print(f"Test RMSE of {model} = {np.sqrt(mean_squared_error(prediction,y_test)):.2f}")
 
 # Візуалізація залишків
 # for model in models:

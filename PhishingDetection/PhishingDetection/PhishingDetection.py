@@ -19,9 +19,15 @@ numerical_cols = data.select_dtypes(include=['int64', 'float64']).columns.tolist
 imputer_num = SimpleImputer(strategy='median')
 data[numerical_cols] = imputer_num.fit_transform(data[numerical_cols])
 
+print("Числові дані після заміни медіаною:")
+print(data[numerical_cols].head())
+
 # Імп'ютер для категорійних даних, заміна NaN на найчастіше значення
 imputer_cat = SimpleImputer(strategy='most_frequent')
 data[categorical_cols] = imputer_cat.fit_transform(data[categorical_cols])
+
+print("Категорійні дані після заміни найчастішим значенням:")
+print(data[categorical_cols].head())
 
 # Вилучення мітки з числових колонок, якщо вона там присутня
 if 'label' in numerical_cols:
